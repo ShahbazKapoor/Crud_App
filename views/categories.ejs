@@ -1,0 +1,49 @@
+<!-- Include Header -->
+<%- include('include/_header') %>
+<!-- /Include Header -->
+
+<!--Main Site-->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add-category" class="border-shadow">
+                    <span class="text-gradient">ADD Category <i class="fa-solid fa-list-check"></i></span>
+                </a>
+            </div>
+
+            <!--form handling-->
+                <form action="#" method="POST">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>CategoryId</th> 
+                                <th>CategoryName</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% category_s.forEach(function(category){ %>
+                                <tr>
+                                    <td><%= category.CategoryId %></td>
+                                    <td><a href="category/<%= category.CategoryId %>"><%= category.CategoryName %></a></td>
+                                    <td>
+                                        <a href="update-category/<%= category.CategoryId %>" class="btn border-shadow update">
+                                            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                        </a>
+                                        <a href="deleteCategory/<%= category.CategoryId %>" class="btn border-shadow delete">
+                                            <span class="text-gradient"><i class="fa fa-trash"></i></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </form>
+            <!--/form handling-->
+        </div>
+    </main>
+<!--/Main Site-->
+
+<!-- Include footer -->
+<%- include('include/_footer') %>
+<!-- /Include footer -->

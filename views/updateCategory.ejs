@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Update Category</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap');
+
+        :root{
+            --dark: #0d0e11;
+            --light: #7787d4;
+            --border: #dee2e6;
+            --border-btn: #edf2f4;
+        }
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a{
+            text-decoration: none;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        .container{
+            max-width: 1024px;
+            margin: auto;
+        }
+
+        .nav-brand{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .d-flex{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .justify-between{
+            justify-content: space-between;
+        }
+
+        .text-center{
+            text-align: center;
+        }
+
+        .border-shadow{
+            border: 1px solid var(--border-btn);
+            box-shadow: 1px 3px 10px #e9ecef;
+        }
+
+        .text-dark{
+            color: var(--dark);
+        }
+
+        .inline{
+            display: inline-block;
+        }
+
+        .text-light{
+            color: var(--dark);
+        }
+
+        .text-gradient{
+            background: linear-gradient(to right, #8e2de2, #4a00e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #header nav{
+            background-color: powderblue; 
+            padding: 1em 0;
+            width: 100%;
+        }
+
+        #site-main{
+            margin-top: 4em;
+            font-family: 'Barlow', sans-serif;
+        }
+
+        #site-main .container .box-nav>a{
+            font-size: 1em;
+            padding: .5em 1em;
+        }
+
+        #site-main .container form{
+            margin: 2em 0;
+        }
+
+        table{
+            border-spacing: 0px;
+            width:100%
+        }
+
+        .table td, .table th{
+            padding: .50em;
+            vertical-align: top;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .table td > a.btn{
+            padding: .3em 1em;
+            font-size: 1.1em;
+            margin: 0 .2em;
+        }
+
+        .table tr:hover{
+            background-color: powderblue; 
+        }
+
+        .table tr:hover td > a{
+            box-shadow: none;
+        }
+
+        .table .thead-dark th{
+            color: #fff;
+            background-color: var(--dark);
+            border-color: #32383e;
+        }
+
+        @media only screen and (max-width: 1024px){
+            table, thead, tbody, th, td, tr{
+                display: block;
+            }
+
+            thead tr{
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr{
+                border: 1px solid var(--border);
+            }
+
+            td{
+                border: none;
+                position: relative;
+            }
+        }
+
+        /* add product and update product */
+
+        .form-title{
+            margin-top: 1.5em; 
+        }
+
+        .form-title > h2{
+            padding: .5em 0;
+        }
+
+        .new_product{
+            max-width: 786px;
+            margin: auto;
+        }
+
+        #update_product .form-group,
+        #add_product .form-group{               
+            margin: .5em 0;
+        }
+
+        #update_product .form-group input[type="text"],
+        #update_product .form-group input[type="number"],
+        #add_product .form-group input[type="text"],
+        #add_product .form-group input[type="number"]{
+            width: 100%;
+            padding: .6em 1em;
+            margin: .5em 0;
+            border: 1px solid var(--border);
+            font-family: 'Barlow', sans-serif;
+            font-size: 1em;
+            border-radius: .2em;
+        }
+
+        #update_product .form-group .btn,
+        #add_product .form-group .btn{
+            width: 100%;
+            padding: .9em 1em;
+            background-color: powderblue;  
+            border: none;
+            font-family: 'PT Sans', sans-serif;
+            font-size:1em;
+            cursor: pointer;
+            border-radius: .2em;
+            margin: .5em 0;
+        }
+
+        #update_product .form-group .btn:hover,
+        #add_product .form-group .btn:hover{
+            background-color: var(--dark);
+            color: var(--border);
+        }
+    </style>
+</head>
+<body>
+    
+<!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-brand text-dark">
+                        Product Management System
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+<!-- /Header -->
+
+<!--Main Site-->
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <div class="filter">
+                <a href="/category"><i class="fas fa-angle-double-left"></i> All Product</a>
+            </div>
+        </div>
+
+    <!--Header2-->
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Category</h2>
+            <span class="text-light">Use the below form to Update a Category</span>
+        </div>
+    <!--/Header2-->
+    
+    <!--update product form-->
+        <!--form handling-->
+            <form action="/categoryUpdate" method="POST" id="update_product">
+                <div class="new_product">
+                    <input type="hidden" value="<%= category.CategoryId %>" name="CategoryId">
+                    <div class="form-group">
+                        <label for="CategoryId" class="text-light">Category ID*</label>
+                        <input type="text" id="CategoryId" name="CategoryId" value="<%= category.CategoryId %>" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="CategoryName" class="text-light">Category Name*</label>
+                        <input type="text" id="CategoryName" name="CategoryName" value="<%= category.CategoryName %>" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn text-dark update">Update</button>
+                    </div>
+                </div>
+            </form>
+        <!--/form handling-->
+    <!--/update product form-->
+    </div>
+</main>
+<!--/Main Site-->
+
+</body>
+</html>
