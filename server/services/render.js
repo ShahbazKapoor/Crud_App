@@ -39,21 +39,6 @@ exports.productRoutes = (req,res) => {
     });
 }
 
-// exports.categoryRoutes = (req,res) => {
-//     let sql = "SELECT * FROM categories";
-//     let query = connectDB.query(sql, (err, rows) => {
-//         if (err) {
-//             console.log(err)
-//         }
-//         else {
-//             res.render("categories", {
-//                 category_s: rows,
-//             });
-//         }
-
-//     });
-// }
-
 exports.categoryRoutes = (req, res) => {
     const resultsPerPage = 10;
     const page = parseInt(req.query.page) || 1;
