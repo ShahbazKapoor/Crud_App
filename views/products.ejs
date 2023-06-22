@@ -43,7 +43,24 @@
                         </tbody>
                     </table>
                 </form>
-            <!--/form handling-->
+            <!--/form handling-->   
+            <div class="right">
+                <div class="pagination">
+                    <% if (currentPage >= 1) { %>
+                        <a href="/products?page=<%= currentPage - 1 %>">&laquo;</a>
+                    <% } %>
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                        <% if (i === currentPage) { %>
+                        <a class="active" href="/products?page=<%= i %>"><%= i %></a>
+                        <% } else { %>
+                        <a href="/products?page=<%= i %>"><%= i %></a>
+                        <% } %>
+                    <% } %>
+                    <% if (currentPage <= totalPages) { %>
+                        <a href="/products?page=<%= currentPage + 1 %>">&raquo;</a>
+                    <% } %>
+                </div>
+            </div>
         </div>
     </main>
 <!--/Main Site-->

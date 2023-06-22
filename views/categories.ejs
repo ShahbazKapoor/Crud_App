@@ -40,6 +40,23 @@
                     </table>
                 </form>
             <!--/form handling-->
+            <div class="right">
+                <div class="pagination">
+                    <% if (currentPage >= 1) { %>
+                        <a href="/category/:id?page=<%= currentPage - 1 %>">&laquo;</a>
+                    <% } %>
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                        <% if (i === currentPage) { %>
+                        <a class="active" href="/category/:id?page=<%= i %>"><%= i %></a>
+                        <% } else { %>
+                        <a href="/category/:id?page=<%= i %>"><%= i %></a>
+                        <% } %>
+                    <% } %>
+                    <% if (currentPage <= totalPages) { %>
+                        <a href="/category/:id?page=<%= currentPage + 1 %>">&raquo;</a>
+                    <% } %>
+                </div>
+            </div>
         </div>
     </main>
 <!--/Main Site-->

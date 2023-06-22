@@ -68,6 +68,5 @@ route.get('/deleteProduct/:id', services.deleteProduct);
  * @method get
  */
 route.get('/deleteCategory/:id', services.deleteCategory);
-// route.get('/deleteRelated/:id', services.deleteinside);
 
 module.exports = route;
